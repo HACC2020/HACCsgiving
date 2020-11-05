@@ -2,16 +2,16 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Bullets from '../components/Bullets';
 
-const Home = (props) => {
+const EmployeeCheck = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.welcomeContainer}>
         <Text style={styles.welcomeText}>Welcome to the app!</Text>
       </View>
-      <Bullets current={1} />
+      <Bullets current={2} />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -32,4 +32,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Home;
+export default EmployeeCheck;
