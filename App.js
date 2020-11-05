@@ -7,7 +7,7 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import AppNavigator from './ui/navigators/AppNavigator';
+import AppNavigator from './src/ui/navigators/AppNavigator';
 
 
 const App = () => {
