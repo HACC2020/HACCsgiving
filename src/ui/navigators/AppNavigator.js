@@ -6,6 +6,9 @@ import Home from '../screens/Home';
  * TODO:
  * - Implement react-navigation
  * - Add remaining screens from the mockup
+ * 
+ * So far, the plan is to set up the navigator so that it follows the mockup.
+ * Right now, we have first and second screens from the mockup, Home.js and EmployeeCheck.js.
  */
 const AppNavigator = (props) => {
   return (

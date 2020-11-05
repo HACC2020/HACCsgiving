@@ -3,6 +3,12 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Bullets from '../components/Bullets';
 import { COLORS } from '../../config/Colors';
 
+
+/**
+ * TODO:
+ * - Change 'Sign In' button to 'Next'
+ * - Maybe add a background image (your choice)
+ */
 const Home = (props) => {
   return (
     <View style={styles.container}>
