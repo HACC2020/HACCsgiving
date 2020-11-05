@@ -10,8 +10,8 @@ import Home from '../screens/Home';
 const AppNavigator = (props) => {
   return (
     <>
-      {/* <Home /> */}
-      <EmployeeCheck />
+      <Home />
+      {/* <EmployeeCheck /> */}
     </>
   );
 }

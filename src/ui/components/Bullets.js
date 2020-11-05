@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { COLORS } from '../../config/Colors';
 
 const Bullets = (props) => {
   const [current, setCurrent] = useState(-1);
@@ -23,11 +24,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   pageBullet: {
-    color: '#fff',
+    color: COLORS.black,
     fontSize: 48
   },
   pageBulletCurrent: {
-    color: '#000',
+    color: COLORS.lightGreen,
     fontSize: 48
   }
 });
