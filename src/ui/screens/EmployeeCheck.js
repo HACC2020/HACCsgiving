@@ -6,7 +6,7 @@ const EmployeeCheck = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.welcomeContainer}>
-        <Text style={styles.welcomeText}>Welcome to the app!</Text>
+        <Text style={styles.welcomeText}>Employee Check!</Text>
       </View>
       <Bullets current={2} />
     </View>

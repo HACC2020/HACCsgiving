@@ -6,7 +6,7 @@ import { COLORS } from '../../config/Colors';
 
 /**
  * TODO:
- * - Change 'Sign In' button to 'Next'
+ * -
  * - Maybe add a background image (your choice)
  */
 const Home = (props) => {
@@ -16,10 +16,10 @@ const Home = (props) => {
         <Text style={styles.welcomeText}>Welcome to the app!</Text>
       </View>
       <TouchableOpacity
-        // onPress={() => props.navigation.navigate('Sign In')}
+        onPress={() => props.navigation.navigate('EmployeeCheck')}
         style={styles.button}
       >
-        <Text style={styles.buttonText}>Sign In</Text>
+        <Text style={styles.buttonText}>Next</Text>
       </TouchableOpacity>
       <Bullets current={1} />
     </View>
