@@ -19,19 +19,23 @@ const Stack = createStackNavigator();
 
 const TheAppNavigator = (props) => {
   return (
-      <Stack.Navigator>
-        <Stack.Screen name="Landing" component={Landing} />
-        <Stack.Screen name="EmployeeCheck" component={EmployeeCheck} />
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="DependencyCheck" component={DependencyCheck} />
-      </Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        animationEnabled: false
+      }}
+    >
+      <Stack.Screen name="Landing" component={Landing} />
+      <Stack.Screen name="EmployeeCheck" component={EmployeeCheck} />
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="DependencyCheck" component={DependencyCheck} />
+    </Stack.Navigator>
   );
 }
 
 export default function AppNavigator() {
   return (
-      <NavigationContainer>
-        <TheAppNavigator />
-      </NavigationContainer>
+    <NavigationContainer>
+      <TheAppNavigator />
+    </NavigationContainer>
   );
 }
