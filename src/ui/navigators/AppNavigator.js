@@ -3,6 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import EmployeeCheck from '../screens/EmployeeCheck';
 import Landing from '../screens/Landing';
+import DependencyCheck from '../screens/DependencyCheck';
+import Home from '../screens/Home';
 
 /**
  * TODO:
@@ -20,6 +22,8 @@ const TheAppNavigator = (props) => {
       <Stack.Navigator>
         <Stack.Screen name="Landing" component={Landing} />
         <Stack.Screen name="EmployeeCheck" component={EmployeeCheck} />
+        <Stack.Screen name="Home" component={Landing} />
+        <Stack.Screen name="DependencyCheck" component={DependencyCheck} />
       </Stack.Navigator>
   );
 }
