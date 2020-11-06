@@ -22,7 +22,7 @@ const TheAppNavigator = (props) => {
       <Stack.Navigator>
         <Stack.Screen name="Landing" component={Landing} />
         <Stack.Screen name="EmployeeCheck" component={EmployeeCheck} />
-        <Stack.Screen name="Home" component={Landing} />
+        <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="DependencyCheck" component={DependencyCheck} />
       </Stack.Navigator>
   );

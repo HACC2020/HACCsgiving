@@ -13,7 +13,7 @@ const DependencyCheck = (props) => {
           <Text style={styles.welcomeText}>Dependency Check!</Text>
         </View>
         <TouchableOpacity
-            //onPress={() => props.navigation.navigate('Home')}
+            onPress={() => props.navigation.navigate('Home')}
             style={styles.button}
         >
           <Text style={styles.buttonText}>Next</Text>
