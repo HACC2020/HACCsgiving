@@ -9,7 +9,7 @@ import { COLORS } from '../../config/Colors';
  * -
  * - Maybe add a background image (your choice)
  */
-const Home = (props) => {
+const Landing = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.welcomeContainer}>
@@ -55,4 +55,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Home;
+export default Landing;
