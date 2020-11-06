@@ -8,18 +8,18 @@ import { COLORS } from '../../config/Colors';
  */
 const DependencyCheck = (props) => {
   return (
-      <View style={styles.container}>
-        <View style={styles.welcomeContainer}>
-          <Text style={styles.welcomeText}>Dependency Check!</Text>
-        </View>
-        <TouchableOpacity
-            onPress={() => props.navigation.navigate('Home')}
-            style={styles.button}
-        >
-          <Text style={styles.buttonText}>Next</Text>
-        </TouchableOpacity>
-        <Bullets current={3} />
+    <View style={styles.container}>
+      <View style={styles.welcomeContainer}>
+        <Text style={styles.welcomeText}>Are you a dependent?</Text>
       </View>
+      <TouchableOpacity
+        onPress={() => props.navigation.navigate('Home')}
+        style={styles.button}
+      >
+        <Text style={styles.buttonText}>Next</Text>
+      </TouchableOpacity>
+      <Bullets current={3} />
+    </View>
   );
 }
 

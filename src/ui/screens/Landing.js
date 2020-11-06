@@ -15,12 +15,14 @@ const Landing = (props) => {
       <View style={styles.welcomeContainer}>
         <Text style={styles.welcomeText}>Welcome to the app!</Text>
       </View>
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('EmployeeCheck')}
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>Next</Text>
-      </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('EmployeeCheck')}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>Next</Text>
+        </TouchableOpacity>
+      </View>
       <Bullets current={1} />
     </View>
   );
@@ -35,13 +37,22 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: COLORS.darkGreen,
-    padding: 16,
     borderRadius: 50,
+    width: 125,
+    padding: 16,
+  },
+  buttonContainer: {
+    // backgroundColor: COLORS.black,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginRight: 64,
+    width: '100%'
   },
   buttonText: {
     color: COLORS.white,
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'center'
   },
   welcomeContainer: {
     position: 'absolute',

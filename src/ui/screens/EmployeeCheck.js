@@ -7,14 +7,32 @@ const EmployeeCheck = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.welcomeContainer}>
-        <Text style={styles.welcomeText}>Employee Check!</Text>
+        <Text style={styles.welcomeText}>Are you a state employee?</Text>
       </View>
-      <TouchableOpacity
+
+      <View style={styles.confirmations}>
+        <TouchableOpacity
           onPress={() => props.navigation.navigate('DependencyCheck')}
-          style={styles.button}
-      >
-        <Text style={styles.buttonText}>Next</Text>
-      </TouchableOpacity>
+          style={styles.confirmationButton}
+        >
+          <Text style={styles.buttonText}>No</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('DependencyCheck')}
+          style={styles.confirmationButton}
+        >
+          <Text style={styles.buttonText}>Yes</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.backButtonContainer}>
+        <TouchableOpacity
+          onPress={() => props.navigation.goBack()}
+          style={styles.backButton}
+        >
+          <Text style={styles.buttonText}>Back</Text>
+        </TouchableOpacity>
+      </View>
       <Bullets current={2} />
     </View>
   );
@@ -27,17 +45,39 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.mainGreen,
     justifyContent: 'flex-end'
   },
-  button: {
+  backButton: {
     backgroundColor: COLORS.darkGreen,
-    padding: 16,
     borderRadius: 50,
+    width: 125,
+    padding: 16,
+  },
+  backButtonContainer: {
+    // backgroundColor: COLORS.black,
+    marginLeft: 64,
+    width: '100%'
   },
   buttonText: {
     color: COLORS.white,
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  confirmations: {
+    // backgroundColor: 'lime',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    position: 'absolute',
+    top: 300,
+    width: '100%'
+  },
+  confirmationButton: {
+    backgroundColor: COLORS.darkGreen,
+    borderRadius: 50,
+    width: 125,
+    padding: 16,
   },
   welcomeContainer: {
+    // backgroundColor: 'lime',
     position: 'absolute',
     top: 70
   },
