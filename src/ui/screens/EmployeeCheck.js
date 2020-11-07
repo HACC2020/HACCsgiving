@@ -30,7 +30,7 @@ const EmployeeCheck = (props) => {
           onPress={() => props.navigation.goBack()}
           style={styles.backButton}
         >
-          <Text style={styles.buttonText}>Back</Text>
+          <Text style={styles.buttonText}>← Back</Text>
         </TouchableOpacity>
       </View>
       <Bullets current={2} />
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   backButtonContainer: {
     // backgroundColor: COLORS.black,
-    marginLeft: 64,
+    paddingLeft: 32,
     width: '100%'
   },
   buttonText: {

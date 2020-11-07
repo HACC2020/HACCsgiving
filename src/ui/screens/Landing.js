@@ -20,7 +20,7 @@ const Landing = (props) => {
           onPress={() => props.navigation.navigate('EmployeeCheck')}
           style={styles.button}
         >
-          <Text style={styles.buttonText}>Next</Text>
+          <Text style={styles.buttonText}>Next →</Text>
         </TouchableOpacity>
       </View>
       <Bullets current={1} />
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     // backgroundColor: COLORS.black,
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    marginRight: 64,
+    paddingRight: 32,
     width: '100%'
   },
   buttonText: {
