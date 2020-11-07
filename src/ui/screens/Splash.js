@@ -8,32 +8,36 @@ import Banner from '../components/Banner';
  * TODO:
  */
 const Splash = (props) => {
-  const str = '\nClick here for COVID-19 information';
+  const str = 'Click here for COVID-19 information';
   return (
     <View style={styles.container}>
-      <View style={styles.settingsButton}>
-        <TouchableOpacity
-            onPress={() => navigate('Settings')}>
-            <Text style={styles.settingsButtonText}>Settings</Text>
-        </TouchableOpacity>
-      </View>
 
       <View style={styles.bannerContainer}>
-        {/* <Text style={styles.welcomeText}>Splash</Text> */}
+        <View style={styles.settingsContainer}>
+          <View style={styles.settingsButton}>
+            <TouchableOpacity
+            // onPress={() => props.navigation.navigate('Settings')}
+            >
+              <Text style={styles.settingsButtonText}>Settings</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
         <Banner style={styles.banner} link={str} />
       </View>
 
       <View style={styles.homeButton}>
         <TouchableOpacity
-            onPress={() => navigate('Home')}>
-            <Text style={styles.buttonText}>Home</Text>
+        // onPress={() => props.navigation.navigate('Home')}
+        >
+          <Text style={styles.buttonText}>Home</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.servicesButton}>
         <TouchableOpacity
-            onPress={() => navigate('All Services')}>
-            <Text style={styles.servicesButtonText}>All Services</Text>
+        // onPress={() => props.navigation.navigate('All Services')}
+        >
+          <Text style={styles.servicesButtonText}>All Services</Text>
         </TouchableOpacity>
       </View>
 
@@ -57,6 +61,7 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontWeight: 'bold',
     fontSize: 22,
+    marginVertical: 5,
     textAlign: 'center'
   },
   button: {
@@ -79,18 +84,20 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center'
   },
+  settingsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
+  },
   settingsButton: {
-    position: 'absolute',
-    top: 10,
-    right: 10,
     backgroundColor: COLORS.darkGreen,
+    borderRadius: 50,
     padding: 10,
-    borderRadius: 50
   },
   settingsButtonText: {
     color: COLORS.white,
     fontSize: 14,
     fontWeight: 'bold',
+    textAlign: 'center'
   },
   homeButton: {
     position: 'absolute',
