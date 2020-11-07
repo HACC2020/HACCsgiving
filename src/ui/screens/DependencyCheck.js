@@ -37,7 +37,7 @@ const DependencyCheck = (props) => {
           <Text style={styles.buttonText}>← Back</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('Home')}
+          onPress={() => props.navigation.navigate('Splash')}
           style={styles.backButton}
         >
           <Text style={styles.buttonText}>Skip →</Text>
