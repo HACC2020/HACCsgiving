@@ -5,6 +5,8 @@ import { COLORS } from '../../config/Colors';
 
 /**
  * TODO:
+ * - Add help button
+ * - Figure out where clicking 'Yes' or 'No' should route to.
  */
 const DependencyCheck = (props) => {
   return (
