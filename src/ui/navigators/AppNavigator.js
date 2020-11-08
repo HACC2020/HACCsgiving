@@ -2,17 +2,18 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import auth from '@react-native-firebase/auth';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 //internal imports
 import EmployeeCheck from '../screens/EmployeeCheck';
 import Landing from '../screens/Landing';
 import DependencyCheck from '../screens/DependencyCheck';
 import Home from '../screens/Home';
-//import OtherHome from '../screens/OtherHome';
-//import Loginnnn from '../screens/Loginn';
 import OtherHome from '../screens/OtherHome';
 import login from '../screens/Login';
 import SignUp from '../screens/SignUp';
-
+import Stats from '../screens/Stats';
+import Settings from  '../screens/Settings';
+import Search from '../screens/Search';
 
 /**
  * TODO:
@@ -24,6 +25,7 @@ import SignUp from '../screens/SignUp';
  */
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const TheAppNavigator = (props) => {
 
@@ -31,7 +33,7 @@ const TheAppNavigator = (props) => {
 
   if (!user) {
     return (
-      <Stack.Navigator>      
+      <Stack.Navigator>
         <Stack.Screen name="Login" component={login} />
         <Stack.Screen name="Landing" component={Landing} />
         <Stack.Screen name="EmployeeCheck" component={EmployeeCheck} />
@@ -43,12 +45,26 @@ const TheAppNavigator = (props) => {
   }
 
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="OtherHome" component={OtherHome} />
-    </Stack.Navigator>
+    <Tab.Navigator>
+      <Tab.Screen name="Homes" component={HomeStackScreen} />
+      <Tab.Screen name="Search" component={Search} />
+      {user.displayName === 'admin' &&
+        <Tab.Screen name="Stats" component={Stats} />
+      }
+    </Tab.Navigator>
   );
 
+}
 
+const HomeStack = createStackNavigator();
+
+function HomeStackScreen() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen name="OtherHome" component={OtherHome} />
+      <HomeStack.Screen name="Settings" component={Settings} />
+    </HomeStack.Navigator>
+  );
 }
 
 export default function AppNavigator() {
