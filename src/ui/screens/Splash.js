@@ -3,6 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
 import Bullets from '../components/Bullets';
 import { COLORS } from '../../config/Colors';
 import Banner from '../components/Banner';
+import Card from '../components/Card';
 
 /**
  * TODO:
