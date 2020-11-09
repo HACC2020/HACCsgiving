@@ -26,8 +26,8 @@ const Splash = (props) => {
         <Banner style={styles.banner} link={str} />
       </View>
 
-      <View style={styles.blank}>
-        <Text style={styles.blankText}>Recommended Search</Text>
+      <View style={styles.searchTitle}>
+        <Text style={styles.searchTitleText}>Recommended Searches</Text>
       </View>
 
       <View style={styles.card}>
@@ -35,7 +35,27 @@ const Splash = (props) => {
             // onPress={() => props.navigation.navigate('Home')}
         >
           <Card>
-            <Text style={styles.cardText}>Test</Text>
+            <Text style={styles.cardText}>I need a place to live</Text>
+          </Card>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.card}>
+        <TouchableOpacity
+            // onPress={() => props.navigation.navigate('Home')}
+        >
+          <Card>
+            <Text style={styles.cardText}>I was laid off because of Covid-19</Text>
+          </Card>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.card}>
+        <TouchableOpacity
+            // onPress={() => props.navigation.navigate('Home')}
+        >
+          <Card>
+            <Text style={styles.cardText}>I need someone to look after my child while I work</Text>
           </Card>
         </TouchableOpacity>
       </View>
@@ -147,14 +167,16 @@ const styles = StyleSheet.create({
   cardText: {
     color: COLORS.black,
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
-  blank: {
+  searchTitle: {
     paddingTop: 100,
   },
-  blankText: {
+  searchTitleText: {
     color:COLORS.white,
-    fontSize: 20,
+    fontSize: 25,
+    fontWeight: 'bold',
   }
 });
 
