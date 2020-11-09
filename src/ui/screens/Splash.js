@@ -26,6 +26,20 @@ const Splash = (props) => {
         <Banner style={styles.banner} link={str} />
       </View>
 
+      <View style={styles.blank}>
+        <Text style={styles.blankText}>Recommended Search</Text>
+      </View>
+
+      <View style={styles.card}>
+        <TouchableOpacity
+            // onPress={() => props.navigation.navigate('Home')}
+        >
+          <Card>
+            <Text style={styles.cardText}>Test</Text>
+          </Card>
+        </TouchableOpacity>
+      </View>
+
       <View style={styles.homeButton}>
         <TouchableOpacity
         // onPress={() => props.navigation.navigate('Home')}
@@ -42,7 +56,9 @@ const Splash = (props) => {
         </TouchableOpacity>
       </View>
 
-      <Bullets current={4} />
+      <View style={styles.bullets}>
+        <Bullets current={4} />
+      </View>
     </View>
   );
 }
@@ -52,7 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     backgroundColor: COLORS.mainGreen,
-    justifyContent: 'flex-end'
+    //justifyContent: 'flex-end'
   },
   bannerContainer: {
     position: 'absolute',
@@ -74,6 +90,10 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontSize: 20,
     fontWeight: 'bold'
+  },
+  bullets: {
+    position: 'absolute',
+    bottom: 0,
   },
   welcomeContainer: {
     position: 'absolute',
@@ -121,6 +141,21 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold'
   },
+  card: {
+    alignItems: 'center',
+  },
+  cardText: {
+    color: COLORS.black,
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
+  blank: {
+    paddingTop: 100,
+  },
+  blankText: {
+    color:COLORS.white,
+    fontSize: 20,
+  }
 });
 
 export default Splash;
