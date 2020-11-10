@@ -14,7 +14,7 @@ const Bullets = (props) => {
       <Text style={current == 1 ? styles.pageBulletCurrent : styles.pageBullet}>●</Text>
       <Text style={current == 2 ? styles.pageBulletCurrent : styles.pageBullet}>●</Text>
       <Text style={current == 3 ? styles.pageBulletCurrent : styles.pageBullet}>●</Text>
-      <Text style={current == 4 ? styles.pageBulletCurrent : styles.pageBullet}>●</Text>
+      {/* <Text style={current == 4 ? styles.pageBulletCurrent : styles.pageBullet}>●</Text> */}
     </View>
   )
 };

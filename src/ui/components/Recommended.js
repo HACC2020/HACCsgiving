@@ -5,10 +5,18 @@ import { COLORS } from '../../config/Colors';
 
 const Recommended = (props) => {
   return (
-    <>
+    <View>
       <View style={styles.searchTitle}>
         <Text style={styles.searchTitleText}>Recommended Searches</Text>
       </View>
+
+      <View
+        style={{
+          borderBottomColor: COLORS.lightGreen,
+          borderBottomWidth: 3,
+          marginHorizontal: 48,
+        }}
+      />
 
       <View style={styles.card}>
         <TouchableOpacity
@@ -19,7 +27,6 @@ const Recommended = (props) => {
           </Card>
         </TouchableOpacity>
 
-
         <TouchableOpacity
         // onPress={() => props.navigation.navigate('Home')}
         >
@@ -27,7 +34,6 @@ const Recommended = (props) => {
             <Text style={styles.cardText}>I was laid off because of Covid-19</Text>
           </Card>
         </TouchableOpacity>
-
 
         <TouchableOpacity
         // onPress={() => props.navigation.navigate('Home')}
@@ -37,7 +43,7 @@ const Recommended = (props) => {
           </Card>
         </TouchableOpacity>
       </View>
-    </>
+    </View>
   );
 };
 
@@ -54,12 +60,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   searchTitle: {
-    paddingTop: 100,
+    // paddingTop: 100,
   },
   searchTitleText: {
     color: COLORS.white,
-    fontSize: 25,
+    fontSize: 22,
     fontWeight: 'bold',
+    textAlign: 'center'
   }
 });
 

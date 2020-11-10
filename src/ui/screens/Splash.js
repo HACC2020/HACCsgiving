@@ -24,30 +24,18 @@ const Splash = (props) => {
             </TouchableOpacity>
           </View>
         </View>
-        <Banner style={styles.banner} link={str} />
+        <TouchableOpacity
+        // onPress={() => props.navigation.navigate('Settings')}
+        >
+          <Card cardStyle={{ marginHorizontal: 16 }} contentStyle={{ paddingVertical: 0 }}>
+            <Banner style={styles.banner} link={str} />
+          </Card>
+        </TouchableOpacity>
       </View>
 
       <Recommended />
 
-      <View style={styles.homeButton}>
-        <TouchableOpacity
-        // onPress={() => props.navigation.navigate('Home')}
-        >
-          <Text style={styles.buttonText}>Home</Text>
-        </TouchableOpacity>
-      </View>
 
-      <View style={styles.servicesButton}>
-        <TouchableOpacity
-        // onPress={() => props.navigation.navigate('All Services')}
-        >
-          <Text style={styles.servicesButtonText}>All Services</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.bullets}>
-        <Bullets current={4} />
-      </View>
     </View>
   );
 }
@@ -60,14 +48,14 @@ const styles = StyleSheet.create({
     //justifyContent: 'flex-end'
   },
   bannerContainer: {
-    position: 'absolute',
-    top: 20
+    // position: 'absolute',
+    marginTop: 15
   },
   banner: {
-    color: COLORS.white,
+    color: COLORS.darkGreen,
     fontWeight: 'bold',
-    fontSize: 22,
-    marginVertical: 5,
+    fontSize: 24,
+    marginVertical: 10,
     textAlign: 'center'
   },
   button: {
@@ -102,6 +90,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.darkGreen,
     borderRadius: 50,
     padding: 10,
+    marginRight: 16
   },
   settingsButtonText: {
     color: COLORS.white,
@@ -150,5 +139,29 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   }
 });
+
+/*
+<View style={styles.homeButton}>
+        <TouchableOpacity
+        // onPress={() => props.navigation.navigate('Home')}
+        >
+          <Text style={styles.buttonText}>Home</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.servicesButton}>
+        <TouchableOpacity
+        // onPress={() => props.navigation.navigate('All Services')}
+        >
+          <Text style={styles.servicesButtonText}>All Services</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.bullets}>
+        <Bullets current={4} />
+      </View>
+
+
+*/
 
 export default Splash;
