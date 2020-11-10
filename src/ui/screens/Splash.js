@@ -4,6 +4,7 @@ import Bullets from '../components/Bullets';
 import { COLORS } from '../../config/Colors';
 import Banner from '../components/Banner';
 import Card from '../components/Card';
+import Recommended from '../components/Recommended';
 
 /**
  * TODO:
@@ -26,37 +27,7 @@ const Splash = (props) => {
         <Banner style={styles.banner} link={str} />
       </View>
 
-      <View style={styles.searchTitle}>
-        <Text style={styles.searchTitleText}>Recommended Searches</Text>
-      </View>
-
-      <View style={styles.card}>
-        <TouchableOpacity
-        // onPress={() => props.navigation.navigate('Home')}
-        >
-          <Card>
-            <Text style={styles.cardText}>I need a place to live</Text>
-          </Card>
-        </TouchableOpacity>
-
-
-        <TouchableOpacity
-        // onPress={() => props.navigation.navigate('Home')}
-        >
-          <Card>
-            <Text style={styles.cardText}>I was laid off because of Covid-19</Text>
-          </Card>
-        </TouchableOpacity>
-
-
-        <TouchableOpacity
-        // onPress={() => props.navigation.navigate('Home')}
-        >
-          <Card>
-            <Text style={styles.cardText}>I need someone to look after my child while I work</Text>
-          </Card>
-        </TouchableOpacity>
-      </View>
+      <Recommended />
 
       <View style={styles.homeButton}>
         <TouchableOpacity
