@@ -1,34 +1,13 @@
 // Login.js
 import React, { useState } from 'react'
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native'
-import auth from '@react-native-firebase/auth';
+import { login } from '../../../fire';
 
 export default function Login({ navigation }) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     state = { email: '', password: '', errorMessage: null }
-
-    const handleLogin = () => {
-        auth()
-            .signInWithEmailAndPassword(email, password)
-            .then(() => {
-                console.log('signed in!');
-            })
-            .catch(error => {
-                if (error.code === 'auth/email-already-in-use') {
-                    console.log('That email address is already in use!');
-                }
-
-                if (error.code === 'auth/invalid-email') {
-                    console.log('That email address is invalid!');
-                }
-
-                console.error(error);
-            });
-
-        console.log('handleLogin')
-    }
 
 
     return (
@@ -54,7 +33,7 @@ export default function Login({ navigation }) {
                 onChangeText={(text) => setPassword(text)}
                 value={password}
             />
-            <Button title="Login" onPress={() => handleLogin()} />
+            <Button title="Login" onPress={() => login(email, password)} />
             <Button
                 title="Don't have an account? Sign Up"
                 onPress={() => navigation.navigate('SignUp')}
