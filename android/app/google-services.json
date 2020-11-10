@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "529526465345",
+    "firebase_url": "https://haccsgiving-fff4b.firebaseio.com",
+    "project_id": "haccsgiving-fff4b",
+    "storage_bucket": "haccsgiving-fff4b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529526465345:android:ea0b6afb19dc45b9e3f7c0",
+        "android_client_info": {
+          "package_name": "com.projecthacc2020"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529526465345-q105agt421o549up3g8slecspq359lfs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzY_aUMQRLEsc-Q5cNW1GJ5cDwUNGN-Yw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529526465345-q105agt421o549up3g8slecspq359lfs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,10 +1,49 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useState, useEffect } from 'react'
+import { Text, View, FlatList } from 'react-native'
+import firestore from '@react-native-firebase/firestore';
 
 const Services = (props) => {
+
+  const [loading, setLoading] = useState(true);
+  const [services, setServices] = useState([]);
+  const ref = firestore().collection('services');
+
+  useEffect(() => {
+    return ref.onSnapshot(querySnapshot => {
+      const list = [];
+      querySnapshot.forEach(doc => {
+        const { title, link } = doc.data();
+        list.push({
+          id: doc.id,
+          title,
+          link,
+        });
+      });
+
+      setServices(list);
+
+      if (loading) {
+        setLoading(false);
+      }
+    });
+  }, []);
+
+  if (loading) {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
+
   return (
-    <View>
-      <Text>Services</Text>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <FlatList
+        style={{ flex: 1 }}
+        data={services}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <Text>{item.title}</Text>}
+      />
     </View>
   )
 };

@@ -1,4 +1,6 @@
 apply plugin: "com.android.application"
+//firebase
+apply plugin: 'com.google.gms.google-services'
 
 import com.android.build.OutputFile
 
@@ -135,6 +137,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     splits {
         abi {
@@ -200,6 +203,11 @@ dependencies {
     debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.flipper'
     }
+
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:26.0.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.android.support:multidex:1.0.3'
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
