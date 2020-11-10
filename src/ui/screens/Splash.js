@@ -36,6 +36,7 @@ const Splash = (props) => {
       <Recommended />
 
 
+
     </View>
   );
 }
@@ -72,15 +73,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
   },
-  welcomeContainer: {
-    position: 'absolute',
-    top: 70
-  },
-  welcomeText: {
-    color: COLORS.white,
-    fontSize: 48,
-    fontWeight: 'bold',
-    textAlign: 'center'
+  pinnedServiceContainer: {
+    alignItems: 'stretch',
+    backgroundColor: 'orange',
+    flex: 1,
+    justifyContent: 'flex-end'
   },
   settingsContainer: {
     flexDirection: 'row',
@@ -98,45 +95,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center'
   },
-  homeButton: {
+  welcomeContainer: {
     position: 'absolute',
-    bottom: 50,
-    left: 10,
-    backgroundColor: COLORS.darkGreen,
-    padding: 16,
-    borderRadius: 50
+    top: 70
   },
-  servicesButton: {
-    position: 'absolute',
-    bottom: 50,
-    right: 10,
-    backgroundColor: COLORS.darkGreen,
-    padding: 21,
-    borderRadius: 50
-  },
-  servicesButtonText: {
+  welcomeText: {
     color: COLORS.white,
-    fontSize: 14,
-    fontWeight: 'bold'
-  },
-  card: {
-    alignItems: 'stretch',
-    // backgroundColor: 'lime',
-    marginHorizontal: 10,
-  },
-  cardText: {
-    color: COLORS.black,
-    fontSize: 20,
+    fontSize: 48,
     fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  searchTitle: {
-    paddingTop: 100,
-  },
-  searchTitleText: {
-    color: COLORS.white,
-    fontSize: 25,
-    fontWeight: 'bold',
+    textAlign: 'center'
   }
 });
 
