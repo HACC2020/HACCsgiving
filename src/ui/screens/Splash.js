@@ -32,27 +32,25 @@ const Splash = (props) => {
 
       <View style={styles.card}>
         <TouchableOpacity
-            // onPress={() => props.navigation.navigate('Home')}
+        // onPress={() => props.navigation.navigate('Home')}
         >
           <Card>
             <Text style={styles.cardText}>I need a place to live</Text>
           </Card>
         </TouchableOpacity>
-      </View>
 
-      <View style={styles.card}>
+
         <TouchableOpacity
-            // onPress={() => props.navigation.navigate('Home')}
+        // onPress={() => props.navigation.navigate('Home')}
         >
           <Card>
             <Text style={styles.cardText}>I was laid off because of Covid-19</Text>
           </Card>
         </TouchableOpacity>
-      </View>
 
-      <View style={styles.card}>
+
         <TouchableOpacity
-            // onPress={() => props.navigation.navigate('Home')}
+        // onPress={() => props.navigation.navigate('Home')}
         >
           <Card>
             <Text style={styles.cardText}>I need someone to look after my child while I work</Text>
@@ -162,7 +160,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   card: {
-    alignItems: 'center',
+    alignItems: 'stretch',
+    // backgroundColor: 'lime',
+    marginHorizontal: 10,
   },
   cardText: {
     color: COLORS.black,
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     paddingTop: 100,
   },
   searchTitleText: {
-    color:COLORS.white,
+    color: COLORS.white,
     fontSize: 25,
     fontWeight: 'bold',
   }
