@@ -1,12 +1,9 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import EmployeeCheck from '../screens/EmployeeCheck';
-import Landing from '../screens/Landing';
-import DependencyCheck from '../screens/DependencyCheck';
-import Splash from '../screens/Splash';
+//internal imports
 import SplashNavigator from './SplashNavigator';
-// import Home from '../screens/Home';
+import { DependencyCheck, EmployeeCheck, Landing } from '../screens';
 
 /**
  * TODO:
