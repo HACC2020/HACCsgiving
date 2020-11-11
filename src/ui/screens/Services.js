@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Text, View, FlatList } from 'react-native'
 import firestore from '@react-native-firebase/firestore';
+//internal importsS
+import { ServiceCard } from '../components';
 
-const Services = (props) => {
+const Services = ({ navigation }) => {
 
   const [loading, setLoading] = useState(true);
   const [services, setServices] = useState([]);
@@ -42,7 +44,7 @@ const Services = (props) => {
         style={{ flex: 1 }}
         data={services}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <Text>{item.title}</Text>}
+        renderItem={({ item }) => <ServiceCard service={item} navigation={navigation}/>/*<Text>{item.title}</Text>*/}
       />
     </View>
   )

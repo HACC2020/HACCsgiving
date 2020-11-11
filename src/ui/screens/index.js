@@ -8,3 +8,4 @@ export { default as Splash } from './Splash';
 export { default as Login } from './Login';
 export { default as Stats } from './Stats';
 export { default as Settings } from './Settings';
+export { default as ServiceDetails } from './ServiceDetails';

@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import auth from '@react-native-firebase/auth';
 //internal imports
 import SplashNavigator from './SplashNavigator';
-import { DependencyCheck, EmployeeCheck, Landing, Login, Settings } from '../screens';
+import { DependencyCheck, EmployeeCheck, Landing, Login, ServiceDetails, Settings } from '../screens';
 
 /**
  * TODO:
@@ -34,6 +34,7 @@ const TheAppNavigator = (props) => {
         <Stack.Screen name="DependencyCheck" component={DependencyCheck} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="ServiceDetails" component={ServiceDetails}/>
         <Stack.Screen name="Splash" component={SplashNavigator} />
       </Stack.Navigator>
     );
@@ -42,6 +43,7 @@ const TheAppNavigator = (props) => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Splash" component={SplashNavigator} />
+      <Stack.Screen name="ServiceDetails" component={ServiceDetails}/>
       <Stack.Screen name="Settings" component={Settings} />
     </Stack.Navigator>
   )
