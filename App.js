@@ -1,8 +1,5 @@
-import auth from '@react-native-firebase/auth';
-import firestore from '@react-native-firebase/firestore';
-
-
-import React from 'react';
+import 'react-native-gesture-handler'
+import React, { useState, useEffect } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -11,10 +8,30 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import auth from '@react-native-firebase/auth';
+
+//internal imports
 import AppNavigator from './src/ui/navigators/AppNavigator';
 
 
 const App = () => {
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState();
+
+  function onAuthStateChanged(user) {
+    setInitializing(true);
+    setUser(user);
+    if (initializing) setInitializing(false);
+  }
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  }, []);
+
+
+  if (initializing) return null;
+
   return (
     <>
       <AppNavigator />

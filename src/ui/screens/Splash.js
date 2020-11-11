@@ -18,7 +18,7 @@ const Splash = (props) => {
         <View style={styles.settingsContainer}>
           <View style={styles.settingsButton}>
             <TouchableOpacity
-            // onPress={() => props.navigation.navigate('Settings')}
+             onPress={() => props.navigation.navigate('Settings')}
             >
               <Text style={styles.settingsButtonText}>Settings</Text>
             </TouchableOpacity>

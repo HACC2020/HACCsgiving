@@ -18,7 +18,7 @@ const EmployeeCheck = (props) => {
           <Text style={styles.buttonText}>No</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('DependencyCheck')}
+          onPress={() => props.navigation.navigate('Login')}
           style={styles.confirmationButton}
         >
           <Text style={styles.buttonText}>Yes</Text>

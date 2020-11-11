@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import auth from '@react-native-firebase/auth';
 //internal imports
 import SplashNavigator from './SplashNavigator';
-import { DependencyCheck, EmployeeCheck, Landing } from '../screens';
+import { DependencyCheck, EmployeeCheck, Landing, Login, Settings } from '../screens';
 
 /**
  * TODO:
@@ -17,19 +18,34 @@ import { DependencyCheck, EmployeeCheck, Landing } from '../screens';
 const Stack = createStackNavigator();
 
 const TheAppNavigator = (props) => {
+
+  let user = auth().currentUser;
+
+  if (!user) {
+    return (
+      <Stack.Navigator
+        screenOptions={{
+          animationEnabled: false
+        }}
+      >
+        <Stack.Screen name="Landing" component={Landing} />
+        <Stack.Screen name="EmployeeCheck" component={EmployeeCheck} />
+        {/* <Stack.Screen name="Home" component={Home} /> */}
+        <Stack.Screen name="DependencyCheck" component={DependencyCheck} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="Splash" component={SplashNavigator} />
+      </Stack.Navigator>
+    );
+  }
+
   return (
-    <Stack.Navigator
-      screenOptions={{
-        animationEnabled: false
-      }}
-    >
-      <Stack.Screen name="Landing" component={Landing} />
-      <Stack.Screen name="EmployeeCheck" component={EmployeeCheck} />
-      {/* <Stack.Screen name="Home" component={Home} /> */}
-      <Stack.Screen name="DependencyCheck" component={DependencyCheck} />
+    <Stack.Navigator>
       <Stack.Screen name="Splash" component={SplashNavigator} />
+      <Stack.Screen name="Settings" component={Settings} />
     </Stack.Navigator>
-  );
+  )
+
 }
 
 export default function AppNavigator() {
