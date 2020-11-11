@@ -107,28 +107,4 @@ const styles = StyleSheet.create({
   }
 });
 
-/*
-<View style={styles.homeButton}>
-        <TouchableOpacity
-        // onPress={() => props.navigation.navigate('Home')}
-        >
-          <Text style={styles.buttonText}>Home</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.servicesButton}>
-        <TouchableOpacity
-        // onPress={() => props.navigation.navigate('All Services')}
-        >
-          <Text style={styles.servicesButtonText}>All Services</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.bullets}>
-        <Bullets current={4} />
-      </View>
-
-
-*/
-
 export default Splash;
