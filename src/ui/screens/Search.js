@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, ActivityIndicator, FlatList, StyleSheet } from 'react-native';
 import { ListItem, SearchBar } from 'react-native-elements';
 import firestore from '@react-native-firebase/firestore';
+import { ServiceCard } from '../components';
 
-const Search = (props) => {
+const Search = ({ navigation }) => {
 
   //const [query, setQuery] = useState('');
   const [filteredServices, setFiltered] = useState([]);
@@ -83,11 +84,7 @@ const Search = (props) => {
       />
       <FlatList
         data={filteredServices}
-        renderItem={({ item }) => (
-          <Text>
-            {item.title}
-          </Text>
-        )}
+        renderItem={({ item }) => <ServiceCard service={item} navigation={navigation} />}
         keyExtractor={item => item.title}
       />
     </View>
