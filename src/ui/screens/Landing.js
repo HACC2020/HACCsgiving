@@ -13,7 +13,7 @@ const Landing = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.welcomeContainer}>
-        <Text style={styles.welcomeText}>Welcome to the app!</Text>
+        <Text style={styles.welcomeText}>Welcome to Helping Hands!</Text>
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
