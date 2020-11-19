@@ -68,3 +68,4 @@ buck-out/
 
 # Optional npm cache directory
 .npm
+android/java_pid32701.hprof

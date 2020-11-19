@@ -38,7 +38,7 @@ const SplashNavigator = (props) => {
       }}
     >
       <Tab.Screen name="Home" component={Splash} />
-      <Tab.Screen name="New Search" component={Search} />
+      <Tab.Screen name="New Search" component={Search} initialParams={{ initialSearch: ''}}/>
       <Tab.Screen name="All Services" component={Services} />
       {user && user.displayName === 'admin' &&
         <Tab.Screen name="Stats" component={Stats} />

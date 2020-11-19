@@ -14,10 +14,11 @@ const Services = ({ navigation }) => {
     return ref.onSnapshot(querySnapshot => {
       const list = [];
       querySnapshot.forEach(doc => {
-        const { title, link } = doc.data();
+        const { title, body, link } = doc.data();
         list.push({
           id: doc.id,
           title,
+          body,
           link,
         });
       });
