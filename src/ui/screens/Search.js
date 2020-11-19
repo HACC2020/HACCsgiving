@@ -5,7 +5,7 @@ import firestore from '@react-native-firebase/firestore';
 import { ServiceCard } from '../components';
 
 const Search = ({ navigation, route }) => {
-  //initial search is given by another component
+  //initial search is given by another component (test)
   let initialSearch = useRef('');
 
   //const [query, setQuery] = useState('');
