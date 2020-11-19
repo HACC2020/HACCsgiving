@@ -15,6 +15,7 @@ const Splash = (props) => {
     <View style={styles.container}>
 
       <View style={styles.bannerContainer}>
+        
         <View style={styles.settingsContainer}>
           <View style={styles.settingsButton}>
             <TouchableOpacity
@@ -25,15 +26,16 @@ const Splash = (props) => {
           </View>
         </View>
         <TouchableOpacity
-        // onPress={() => props.navigation.navigate('Settings')}
+         onPress={() => props.navigation.navigate('New Search', {initialSearch: 'way'})}
         >
           <Card cardStyle={{ marginHorizontal: 16 }} contentStyle={{ paddingVertical: 0 }}>
             <Banner style={styles.banner} link={str} />
+            
           </Card>
         </TouchableOpacity>
       </View>
 
-      <Recommended />
+      <Recommended navigation={props.navigation}/>
 
 
 

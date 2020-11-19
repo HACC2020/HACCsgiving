@@ -9,8 +9,8 @@ const ServiceCard = ({ service, navigation }) => {
         onPress={() => navigation.navigate('ServiceDetails', {service: service})}
       >
         <Text>{service.title}</Text>
-        <Text numberOfLines={1} style={{ width: 20 }}>{service.body}</Text>
-        <Text>{service.link}</Text>
+        {/*<Text numberOfLines={2}>{service.body}</Text>*/}
+        {/*<Text>{service.link}</Text>*/}
       </TouchableOpacity>
     </View>
   )

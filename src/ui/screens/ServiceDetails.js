@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { Button, Text, View, Alert, Linking } from 'react-native';
+import { Button, Text, View, Alert, Linking, StyleSheet } from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 
 const ServiceDetails = ({ navigation, route }) => {
@@ -29,10 +29,25 @@ const ServiceDetails = ({ navigation, route }) => {
     return (
         <View>
             <Text>{route.params.service.title}</Text>
-            <Text>{route.params.service.body}</Text>
+            <Text numberOfLines={20} style={StyleSheet.paragraph}>{route.params.service.body}</Text>
             <Button title="link to service" onPress={handleLink} />
         </View>
     )
 };
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      paddingTop: 30,
+      backgroundColor: '#ecf0f1',
+      padding: 8,
+    },
+    paragraph: {
+      margin: 24,
+      fontSize: 18,
+      textAlign: 'center',
+    },
+  });
 
 export default ServiceDetails;

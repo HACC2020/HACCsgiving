@@ -1,23 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Text, View, ActivityIndicator, FlatList, StyleSheet } from 'react-native';
 import { ListItem, SearchBar } from 'react-native-elements';
 import firestore from '@react-native-firebase/firestore';
 import { ServiceCard } from '../components';
 
-const Search = ({ navigation }) => {
+const Search = ({ navigation, route }) => {
+  //initial search is given by another component
+  let initialSearch = useRef('');
 
   //const [query, setQuery] = useState('');
   const [filteredServices, setFiltered] = useState([]);
   const [loading, setLoading] = useState(true);
   const [services, setServices] = useState([]);
-  const [search, updateSearch] = useState('');
+  const [search, updateSearch] = useState(initialSearch.current);
   const ref = firestore().collection('services');
+  //console.log(initialSearch);
 
   const searchFilter = (text) => {
     let newData = services.filter((item) => {
-      console.log(item);
-      let itemData = `${item.title.toUpperCase()}`;
-      // ${item.body.toUpperCase()}`;
+      //console.log(initialSearch.current);
+      let itemData = `${item.title.toUpperCase()} ${item.body.toUpperCase()}`;
 
       let textData = text.toUpperCase();
 
@@ -40,6 +42,16 @@ const Search = ({ navigation }) => {
     );
   };
 
+  useEffect(()=> {
+    //if(!route.params.initialSearch.current){
+      //console.log(route.params.initialSearch);
+    //}
+    //if(search !== initialSearch){
+      //updateSearch(initialSearch.current);
+      //setFiltered(initialSearch);
+    //}
+  },[]);
+
   useEffect(() => {
     return ref.onSnapshot(querySnapshot => {
       const list = [];
@@ -60,6 +72,20 @@ const Search = ({ navigation }) => {
       }
     });
   }, []);
+
+  //this happens before services loaded edit: suddenly working hah
+  if(initialSearch.current !== route.params.initialSearch){
+    initialSearch.current = route.params.initialSearch;
+    
+      updateSearch(initialSearch.current);
+      searchFilter(initialSearch.current);
+
+    console.log(search);
+    console.log(services);
+    //() => searchFilter(initialSearch.current);
+    //setFiltered(initialSearch.current);
+    console.log(initialSearch.current);
+  }
 
   if (loading) {
     return (

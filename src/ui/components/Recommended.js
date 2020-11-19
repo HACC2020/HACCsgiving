@@ -20,7 +20,7 @@ const Recommended = (props) => {
 
       <View style={styles.card}>
         <TouchableOpacity
-        // onPress={() => props.navigation.navigate('Home')}
+         onPress={() => props.navigation.navigate('New Search', {initialSearch: 'snap'})}
         >
           <Card>
             <Text style={styles.cardText}>I need a place to live</Text>
