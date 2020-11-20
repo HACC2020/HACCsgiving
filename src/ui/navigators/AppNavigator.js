@@ -25,7 +25,8 @@ const TheAppNavigator = (props) => {
     return (
       <Stack.Navigator
         screenOptions={{
-          animationEnabled: false
+          animationEnabled: false,
+          headerShown: false
         }}
       >
         <Stack.Screen name="Landing" component={Landing} />
@@ -34,16 +35,21 @@ const TheAppNavigator = (props) => {
         <Stack.Screen name="DependencyCheck" component={DependencyCheck} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Settings" component={Settings} />
-        <Stack.Screen name="ServiceDetails" component={ServiceDetails}/>
+        <Stack.Screen name="ServiceDetails" component={ServiceDetails} />
         <Stack.Screen name="Splash" component={SplashNavigator} />
       </Stack.Navigator>
     );
   }
 
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        animationEnabled: false,
+        headerShown: false
+      }}
+    >
       <Stack.Screen name="Splash" component={SplashNavigator} />
-      <Stack.Screen name="ServiceDetails" component={ServiceDetails}/>
+      <Stack.Screen name="ServiceDetails" component={ServiceDetails} />
       <Stack.Screen name="Settings" component={Settings} />
     </Stack.Navigator>
   )

@@ -4,9 +4,8 @@ import Bullets from '../components/Bullets';
 import { COLORS } from '../../config/Colors';
 
 /**
- * TODO:
- * - Add help button
- * - Figure out where clicking 'Yes' or 'No' should route to.
+ * DISABLED BECAUSE IT HAS NO USE. USER SHOULD NOT BE ABLE TO NAVIGATE
+ * TO THIS SCREEN.
  */
 const DependencyCheck = (props) => {
   return (
