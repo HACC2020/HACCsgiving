@@ -68,9 +68,6 @@ export default function Settings({ navigation }) {
           <Text style={styles.buttonText}>Go back</Text>
         </TouchableOpacity>
       </View>
-
-      <Button title="Sign out" onPress={() => logout()} />
-      <Button title="make admin" onPress={() => makeAdmin()} />
     </View>
   );
 }
