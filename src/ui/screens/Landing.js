@@ -6,8 +6,7 @@ import { COLORS } from '../../config/Colors';
 
 /**
  * TODO:
- * -
- * - Maybe add a background image (your choice)
+ * 
  */
 const Landing = (props) => {
   return (

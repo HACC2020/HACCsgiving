@@ -1,26 +1,84 @@
 import React from 'react'
-import { Text, View, Button } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native'
 import auth from '@react-native-firebase/auth';
+import { COLORS } from '../../config/Colors';
 //internal imports
 import { logout, makeAdmin } from '../../firebase/authentication'
 
 export default function Settings({ navigation }) {
-    let user = auth().currentUser;
+  let user = auth().currentUser;
 
-    if (!user) {
-        return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text>State worker?</Text>
-                <Button title="Sign in here" onPress={() => navigation.navigate('Login')} />
-            </View>
-        );
-    }
-
+  if (!user) {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Settings Screen</Text>
-            <Button title="Sign out" onPress={() => logout()} />
-            <Button title="make admin" onPress={() => makeAdmin()} />
+      <View style={styles.container}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>State worker?</Text>
         </View>
+
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Login')}
+            style={styles.button}
+          >
+            <Text style={styles.buttonText}>Sign in here</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={{ ...styles.buttonContainer, marginTop: 16 }}>
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={styles.button}
+          >
+            <Text style={styles.buttonText}>Go back</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     );
+  }
+
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Settings Screen</Text>
+      <Button title="Sign out" onPress={() => logout()} />
+      <Button title="make admin" onPress={() => makeAdmin()} />
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: COLORS.mainGreen,
+    alignItems: 'center'
+  },
+  button: {
+    backgroundColor: COLORS.darkGreen,
+    borderRadius: 50,
+    flex: 1,
+    marginHorizontal: 16,
+    padding: 16
+  },
+  buttonContainer: {
+    // backgroundColor: COLORS.black,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '100%'
+  },
+  buttonText: {
+    color: COLORS.white,
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  title: {
+    color: COLORS.white,
+    fontSize: 48,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  titleContainer: {
+    position: 'absolute',
+    top: 70
+  },
+});
