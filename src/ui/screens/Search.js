@@ -5,7 +5,6 @@ import firestore from '@react-native-firebase/firestore';
 import { ServiceCard } from '../components';
 import { COLORS } from '../../config/Colors';
 
-
 const Search = ({ navigation, route }) => {
   //initial search is given by another component (test)
   let initialSearch = useRef('');
@@ -98,9 +97,10 @@ const Search = ({ navigation, route }) => {
   }
 
   return (
-    <View style={{ flex: 1 }}>
-
+    <View style={styles.container}>
       <SearchBar
+        containerStyle={styles.searchContainer}
+        inputStyle={styles.searchInput}
         placeholder="Type Here..."
         lightTheme
         round
@@ -111,82 +111,29 @@ const Search = ({ navigation, route }) => {
         value={search}
         autoCorrect={false}
       />
-      <View style={styles.container}>
-
-        <FlatList
-          data={filteredServices}
-          renderItem={({ item }) => <ServiceCard service={item} navigation={navigation} />}
-          keyExtractor={item => item.title}
-        />
-      </View>
+      <FlatList
+        data={filteredServices}
+        renderItem={({ item }) => <ServiceCard service={item} navigation={navigation} />}
+        keyExtractor={item => item.title}
+      />
     </View>
-
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    backgroundColor: COLORS.mainGreen
+  },
+  searchContainer: {
     backgroundColor: COLORS.mainGreen,
-    //justifyContent: 'flex-end'
+    borderBottomWidth: 0,
+    borderTopWidth: 0,
+    marginVertical: 12
   },
-  bannerContainer: {
-    // position: 'absolute',
-    marginTop: 15
-  },
-  banner: {
-    color: COLORS.darkGreen,
-    fontWeight: 'bold',
-    fontSize: 24,
-    marginVertical: 10,
-    textAlign: 'center'
-  },
-  button: {
-    backgroundColor: COLORS.darkGreen,
-    padding: 16,
-    borderRadius: 50,
-  },
-  buttonText: {
-    color: COLORS.white,
-    fontSize: 20,
-    fontWeight: 'bold'
-  },
-  bullets: {
-    position: 'absolute',
-    bottom: 0,
-  },
-  pinnedServiceContainer: {
-    alignItems: 'stretch',
-    backgroundColor: 'orange',
-    flex: 1,
-    justifyContent: 'flex-end'
-  },
-  settingsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end'
-  },
-  settingsButton: {
-    backgroundColor: COLORS.darkGreen,
-    borderRadius: 50,
-    padding: 10,
-    marginRight: 16
-  },
-  settingsButtonText: {
-    color: COLORS.white,
-    fontSize: 14,
-    fontWeight: 'bold',
-    textAlign: 'center'
-  },
-  welcomeContainer: {
-    position: 'absolute',
-    top: 70
-  },
-  welcomeText: {
-    color: COLORS.white,
-    fontSize: 48,
-    fontWeight: 'bold',
-    textAlign: 'center'
+  searchInput: {
+    backgroundColor: COLORS.white,
+    color: COLORS.black
   }
 });
 
