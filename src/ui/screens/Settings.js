@@ -20,7 +20,7 @@ export default function Settings({ navigation }) {
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>Settings Screen</Text>
             <Button title="Sign out" onPress={() => logout()} />
-            <Button title="make admin" onPress={() => makeAdmin()} />
+            {/*<Button title="make admin" onPress={() => makeAdmin()} />*/}
         </View>
     );
 }

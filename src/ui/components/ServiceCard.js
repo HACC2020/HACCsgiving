@@ -9,11 +9,11 @@ const ServiceCard = ({ service, navigation }) => {
   return (
     <View>
       <TouchableOpacity
-        onPress={() => navigation.navigate('ServiceDetails', {service: service})}
+        onPress={() => navigation.navigate('ServiceDetails', { service: service })}
       >
         <Card>
-            <Text style={styles.cardText}>{service.title}</Text>
-          </Card>
+          <Text style={styles.cardText}>{service.title}</Text>
+        </Card>
         {/*<Text numberOfLines={2}>{service.body}</Text>*/}
         {/*<Text>{service.link}</Text>*/}
       </TouchableOpacity>

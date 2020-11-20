@@ -8,6 +8,8 @@ export default function Stats({ navigation }) {
     const [linkclicks, setServices] = useState([]);
     const ref = firestore().collection('linkclick');
 
+    
+
     useEffect(() => {
         return ref.onSnapshot(querySnapshot => {
             const list = [];

@@ -1,6 +1,9 @@
 import React, { useCallback } from 'react';
 import { Button, Text, View, Alert, Linking, StyleSheet } from 'react-native';
 import firestore from '@react-native-firebase/firestore';
+import Card from '../components/Card';
+import { COLORS } from '../../config/Colors';
+
 
 const ServiceDetails = ({ navigation, route }) => {
     const url = route.params.service.link;
@@ -27,9 +30,13 @@ const ServiceDetails = ({ navigation, route }) => {
     }, [url]);
 
     return (
-        <View>
-            <Text>{route.params.service.title}</Text>
-            <Text numberOfLines={20} style={StyleSheet.paragraph}>{route.params.service.body}</Text>
+        <View style={styles.container}>
+            <Card>
+                <Text style={styles.cardText}>{route.params.service.title}</Text>
+            </Card>
+            <Card>
+                <Text  numberOfLines={25} style={StyleSheet.paragraph}>{route.params.service.body}</Text>
+            </Card>
             <Button title="link to service" onPress={handleLink} />
         </View>
     )
@@ -37,17 +44,28 @@ const ServiceDetails = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      justifyContent: 'center',
-      paddingTop: 30,
-      backgroundColor: '#ecf0f1',
-      padding: 8,
+        flex: 1,
+        justifyContent: 'center',
+        paddingTop: 30,
+        backgroundColor: COLORS.mainGreen,
+        padding: 8,
+    },
+    cardText: {
+        color: COLORS.black,
+        fontSize: 20,
+        fontWeight: 'bold',
+        textAlign: 'center',
     },
     paragraph: {
-      margin: 24,
-      fontSize: 18,
-      textAlign: 'center',
+        margin: 24,
+        fontSize: 18,
+        textAlign: 'center',
     },
-  });
+    bottom: {
+        flex: 1,
+        justifyContent: 'flex-end',
+        marginBottom: 36
+      }
+});
 
 export default ServiceDetails;
