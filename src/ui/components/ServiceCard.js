@@ -1,19 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import Card from '../components/Card';
 import { COLORS } from '../../config/Colors';
-
 
 const ServiceCard = ({ service, navigation }) => {
   return (
     <View>
       <TouchableOpacity
+        // style={{ backgroundColor: 'blue' }}
+        style={styles.textContainer}
         onPress={() => navigation.navigate('ServiceDetails', { service: service })}
       >
-        <Card>
-          <Text style={styles.cardText}>{service.title}</Text>
-        </Card>
+        <View >
+          <Text style={styles.text}>{service.title}</Text>
+        </View>
         {/*<Text numberOfLines={2}>{service.body}</Text>*/}
         {/*<Text>{service.link}</Text>*/}
       </TouchableOpacity>
@@ -22,25 +22,17 @@ const ServiceCard = ({ service, navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  card: {
-    alignItems: 'stretch',
-    // backgroundColor: 'lime',
-    marginHorizontal: 10,
-  },
-  cardText: {
-    color: COLORS.black,
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  searchTitle: {
-    // paddingTop: 100,
-  },
-  searchTitleText: {
+  text: {
     color: COLORS.white,
-    fontSize: 22,
-    fontWeight: 'bold',
-    textAlign: 'center'
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
+  textContainer: {
+    backgroundColor: COLORS.darkGreen,
+    marginHorizontal: 16,
+    marginVertical: 4,
+    paddingHorizontal: 16,
+    paddingVertical: 8
   }
 });
 
