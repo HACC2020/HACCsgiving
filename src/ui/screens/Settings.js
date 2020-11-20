@@ -37,8 +37,38 @@ export default function Settings({ navigation }) {
   }
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Settings Screen</Text>
+    <View style={styles.container}>
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>Settings Screen</Text>
+      </View>
+
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          onPress={() => logout()}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>Sign out</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={{ ...styles.buttonContainer, marginTop: 16 }}>
+        <TouchableOpacity
+          onPress={() => makeAdmin()}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>Make Admin</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={{ ...styles.buttonContainer, marginTop: 16 }}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>Go back</Text>
+        </TouchableOpacity>
+      </View>
+
       <Button title="Sign out" onPress={() => logout()} />
       <Button title="make admin" onPress={() => makeAdmin()} />
     </View>
