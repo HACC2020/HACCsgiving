@@ -3,6 +3,7 @@ import { Text, View, ActivityIndicator, FlatList, StyleSheet } from 'react-nativ
 import { ListItem, SearchBar } from 'react-native-elements';
 import firestore from '@react-native-firebase/firestore';
 import { ServiceCard } from '../components';
+import { COLORS } from '../../config/Colors';
 
 const Search = ({ navigation, route }) => {
   //initial search is given by another component (test)
@@ -42,15 +43,15 @@ const Search = ({ navigation, route }) => {
     );
   };
 
-  useEffect(()=> {
+  useEffect(() => {
     //if(!route.params.initialSearch.current){
-      //console.log(route.params.initialSearch);
+    //console.log(route.params.initialSearch);
     //}
     //if(search !== initialSearch){
-      //updateSearch(initialSearch.current);
-      //setFiltered(initialSearch);
+    //updateSearch(initialSearch.current);
+    //setFiltered(initialSearch);
     //}
-  },[]);
+  }, []);
 
   useEffect(() => {
     return ref.onSnapshot(querySnapshot => {
@@ -74,11 +75,11 @@ const Search = ({ navigation, route }) => {
   }, []);
 
   //this happens before services loaded edit: suddenly working hah
-  if(initialSearch.current !== route.params.initialSearch){
+  if (initialSearch.current !== route.params.initialSearch) {
     initialSearch.current = route.params.initialSearch;
-    
-      updateSearch(initialSearch.current);
-      searchFilter(initialSearch.current);
+
+    updateSearch(initialSearch.current);
+    searchFilter(initialSearch.current);
 
     console.log(search);
     console.log(services);
@@ -96,8 +97,10 @@ const Search = ({ navigation, route }) => {
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       <SearchBar
+        containerStyle={styles.searchContainer}
+        inputStyle={styles.searchInput}
         placeholder="Type Here..."
         lightTheme
         round
@@ -116,5 +119,22 @@ const Search = ({ navigation, route }) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.mainGreen
+  },
+  searchContainer: {
+    backgroundColor: COLORS.mainGreen,
+    borderBottomWidth: 0,
+    borderTopWidth: 0,
+    marginVertical: 12
+  },
+  searchInput: {
+    backgroundColor: COLORS.white,
+    color: COLORS.black
+  }
+});
 
 export default Search;

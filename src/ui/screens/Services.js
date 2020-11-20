@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, FlatList } from 'react-native'
+import { StyleSheet, Text, View, FlatList } from 'react-native'
 import firestore from '@react-native-firebase/firestore';
 //internal importsS
 import { ServiceCard } from '../components';
+import { COLORS } from '../../config/Colors';
 
 const Services = ({ navigation }) => {
 
@@ -40,15 +41,35 @@ const Services = ({ navigation }) => {
   }
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={styles.container}>
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>Services</Text>
+      </View>
       <FlatList
         style={{ flex: 1 }}
         data={services}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <ServiceCard service={item} navigation={navigation}/>/*<Text>{item.title}</Text>*/}
+        renderItem={({ item }) => <ServiceCard service={item} navigation={navigation} />/*<Text>{item.title}</Text>*/}
       />
     </View>
   )
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: COLORS.mainGreen,
+    flex: 1
+  },
+  title: {
+    color: COLORS.white,
+    fontSize: 40,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  titleContainer: {
+    justifyContent: 'center',
+    marginVertical: 12
+  },
+});
 
 export default Services;
