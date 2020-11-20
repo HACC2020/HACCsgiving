@@ -26,7 +26,7 @@ const Splash = (props) => {
           </View>
         </View>
         <TouchableOpacity
-         onPress={() => props.navigation.navigate('New Search', {initialSearch: 'way'})}
+         onPress={() => props.navigation.navigate('New Search', {initialSearch: 'covid'})}
         >
           <Card cardStyle={{ marginHorizontal: 16 }} contentStyle={{ paddingVertical: 0 }}>
             <Banner style={styles.banner} link={str} />

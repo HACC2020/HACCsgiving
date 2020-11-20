@@ -20,7 +20,7 @@ const Recommended = (props) => {
 
       <View style={styles.card}>
         <TouchableOpacity
-         onPress={() => props.navigation.navigate('New Search', {initialSearch: 'snap'})}
+          onPress={() => props.navigation.navigate('New Search', { initialSearch: 'homeless' })}
         >
           <Card>
             <Text style={styles.cardText}>I need a place to live</Text>
@@ -28,7 +28,7 @@ const Recommended = (props) => {
         </TouchableOpacity>
 
         <TouchableOpacity
-        // onPress={() => props.navigation.navigate('Home')}
+          onPress={() => props.navigation.navigate('New Search', { initialSearch: 'work' })}
         >
           <Card>
             <Text style={styles.cardText}>I was laid off because of Covid-19</Text>
@@ -36,7 +36,7 @@ const Recommended = (props) => {
         </TouchableOpacity>
 
         <TouchableOpacity
-        // onPress={() => props.navigation.navigate('Home')}
+          onPress={() => props.navigation.navigate('New Search', { initialSearch: 'child' })}
         >
           <Card>
             <Text style={styles.cardText}>I need someone to look after my child while I work</Text>

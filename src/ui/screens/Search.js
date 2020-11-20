@@ -3,6 +3,8 @@ import { Text, View, ActivityIndicator, FlatList, StyleSheet } from 'react-nativ
 import { ListItem, SearchBar } from 'react-native-elements';
 import firestore from '@react-native-firebase/firestore';
 import { ServiceCard } from '../components';
+import { COLORS } from '../../config/Colors';
+
 
 const Search = ({ navigation, route }) => {
   //initial search is given by another component (test)
@@ -42,15 +44,15 @@ const Search = ({ navigation, route }) => {
     );
   };
 
-  useEffect(()=> {
+  useEffect(() => {
     //if(!route.params.initialSearch.current){
-      //console.log(route.params.initialSearch);
+    //console.log(route.params.initialSearch);
     //}
     //if(search !== initialSearch){
-      //updateSearch(initialSearch.current);
-      //setFiltered(initialSearch);
+    //updateSearch(initialSearch.current);
+    //setFiltered(initialSearch);
     //}
-  },[]);
+  }, []);
 
   useEffect(() => {
     return ref.onSnapshot(querySnapshot => {
@@ -74,11 +76,11 @@ const Search = ({ navigation, route }) => {
   }, []);
 
   //this happens before services loaded edit: suddenly working hah
-  if(initialSearch.current !== route.params.initialSearch){
+  if (initialSearch.current !== route.params.initialSearch) {
     initialSearch.current = route.params.initialSearch;
-    
-      updateSearch(initialSearch.current);
-      searchFilter(initialSearch.current);
+
+    updateSearch(initialSearch.current);
+    searchFilter(initialSearch.current);
 
     console.log(search);
     console.log(services);
@@ -97,6 +99,7 @@ const Search = ({ navigation, route }) => {
 
   return (
     <View style={{ flex: 1 }}>
+
       <SearchBar
         placeholder="Type Here..."
         lightTheme
@@ -108,13 +111,83 @@ const Search = ({ navigation, route }) => {
         value={search}
         autoCorrect={false}
       />
-      <FlatList
-        data={filteredServices}
-        renderItem={({ item }) => <ServiceCard service={item} navigation={navigation} />}
-        keyExtractor={item => item.title}
-      />
+      <View style={styles.container}>
+
+        <FlatList
+          data={filteredServices}
+          renderItem={({ item }) => <ServiceCard service={item} navigation={navigation} />}
+          keyExtractor={item => item.title}
+        />
+      </View>
     </View>
+
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: COLORS.mainGreen,
+    //justifyContent: 'flex-end'
+  },
+  bannerContainer: {
+    // position: 'absolute',
+    marginTop: 15
+  },
+  banner: {
+    color: COLORS.darkGreen,
+    fontWeight: 'bold',
+    fontSize: 24,
+    marginVertical: 10,
+    textAlign: 'center'
+  },
+  button: {
+    backgroundColor: COLORS.darkGreen,
+    padding: 16,
+    borderRadius: 50,
+  },
+  buttonText: {
+    color: COLORS.white,
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
+  bullets: {
+    position: 'absolute',
+    bottom: 0,
+  },
+  pinnedServiceContainer: {
+    alignItems: 'stretch',
+    backgroundColor: 'orange',
+    flex: 1,
+    justifyContent: 'flex-end'
+  },
+  settingsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
+  },
+  settingsButton: {
+    backgroundColor: COLORS.darkGreen,
+    borderRadius: 50,
+    padding: 10,
+    marginRight: 16
+  },
+  settingsButtonText: {
+    color: COLORS.white,
+    fontSize: 14,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  },
+  welcomeContainer: {
+    position: 'absolute',
+    top: 70
+  },
+  welcomeText: {
+    color: COLORS.white,
+    fontSize: 48,
+    fontWeight: 'bold',
+    textAlign: 'center'
+  }
+});
 
 export default Search;
