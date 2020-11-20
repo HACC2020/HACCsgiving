@@ -42,7 +42,12 @@ const TheAppNavigator = (props) => {
   }
 
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        animationEnabled: false,
+        headerShown: false
+      }}
+    >
       <Stack.Screen name="Splash" component={SplashNavigator} />
       <Stack.Screen name="ServiceDetails" component={ServiceDetails} />
       <Stack.Screen name="Settings" component={Settings} />
