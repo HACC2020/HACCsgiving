@@ -1,6 +1,6 @@
 # HACCsgiving  
 
-## Helpging Hands  
+## Helping Hands  
 
 ### project-hacc2020  
 
